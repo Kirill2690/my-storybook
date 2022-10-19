@@ -1,0 +1,49 @@
+
+
+.default {
+    position: relative;
+    display: block;
+    background-color: white;
+    font-size: 15px;
+    font-family: "montserrat";
+    text-decoration: none;
+    border: 2px solid;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 1s all ease;
+    border-radius: 5px;
+}
+
+default::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    transition: all 0.6s ease;
+}
+
+
+.red {
+    background: red;
+    position: relative;
+    display: block;
+    font-size: 15px;
+    font-family: "montserrat";
+    text-decoration: none;
+    border: 2px solid;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 1s all ease;
+    border-radius: 5px;
+
+}
+
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: grey;
+
+}
