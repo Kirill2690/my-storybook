@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import SuperButton from "../components/superButton/SuperButton";
+import {useEffect, useState} from "react";
+
 
 export default {
-    title: 'UseEffect demo',
+    title: 'useEffect demo',
 }
 
 export const SimpleExample = () => {
@@ -26,11 +26,11 @@ export const SimpleExample = () => {
         document.title = counter.toString();
     }, [counter]) //в зависимости передаем [counter]
 
-    return <div style={{display:"flex"}}>
+    return <>
         Hello, {counter} {fake}
-        <SuperButton onClick={() => setFake(fake + 1)}>fake+</SuperButton>
-        <SuperButton onClick={() => setCounter(counter + 1)}>counter+</SuperButton>
-    </div>
+        <button onClick={() => setFake(fake + 1)}>fake+</button>
+        <button onClick={() => setCounter(counter + 1)}>counter+</button>
+    </>
 
 }
 
@@ -69,10 +69,10 @@ export const ResetEffectExample = () => {
         setCounter(counter + 1)
     }
 
-    return <div style={{display:"flex"}}>
+    return <>
         Hello, counter: {counter}
-        <SuperButton onClick={increase}>+</SuperButton>
-    </div>
+        <button onClick={increase}>+</button>
+    </>
 }
 
 export const KeysTrackerExample = () => {

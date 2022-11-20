@@ -1,48 +1,44 @@
 import React, {useState} from 'react';
-import SuperButton from "../components/superButton/SuperButton";
 
 export default {
-  title: 'React.memo demo',
+    title: 'React.memo demo',
 }
 
 const NewMessagesCounter = (props: { count: number }) => {
-  console.log("Counter render");
-  return <div>{props.count}</div>
+    console.log("Counter render");
+    return <div>{props.count}</div>
 }
 
 const UsersSecret = (props: { users: Array<string> }) => {
-  console.log("Users render");
-  return <div>{
-    props.users.map((u, i) => <div key={i}>{u}</div>)
-  }</div>
+    console.log("Users render");
+    return <div>{
+        props.users.map((u, i) => <div key={i}>{u}</div>)
+    }</div>
 }
 
 const Users = React.memo(UsersSecret)
 
 export const Example1 = () => {
-  console.log('Example')
-  const [counter, setCounter] = useState(0)
-  const [users, setUsers] = useState(['Kirill', 'Varvara', 'Ronald'])
+    console.log('Example')
+    const [counter, setCounter] = useState(0)
+    const [users, setUsers] = useState(['Dimych', 'Valera', 'Artem'])
 
-  const addUser = () => {
-    const newUsers = [...users, users[0] + new Date().getTime()]
-    setUsers(newUsers)
-  }
+    const addUser = () => {
+        const newUsers = [...users, 'Sveta ' + new Date().getTime()]
+        setUsers(newUsers)
+    }
 
-  users.push(users[0] + new Date().getTime())
+    users.push('Sveta ' + new Date().getTime())
 
-  return <>
-  <div style={{display:"flex"}}>
-    <SuperButton onClick={() =>
-        setCounter(counter + 1)
-    }>+
-    </SuperButton>
-    <SuperButton onClick={addUser}>add user
-    </SuperButton>
-  </div>
-    <NewMessagesCounter count={counter}/>
-    <Users users={users}/>
-  </>
-
+    return <>
+        <button onClick={() =>
+            setCounter(counter + 1)
+        }>+
+        </button>
+        <button onClick={addUser}>add user
+        </button>
+        <NewMessagesCounter count={counter}/>
+        <Users users={users}/>
+    </>
 
 }

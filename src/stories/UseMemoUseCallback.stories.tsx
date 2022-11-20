@@ -2,9 +2,8 @@ import React, {useCallback, useMemo, useState} from 'react';
 import {Select} from "../components/select/Select";
 
 
-
 export default {
-    title: 'UseMemo',
+    title: 'useMemo',
 }
 
 export const DifficultCountingExample = () => {
@@ -93,11 +92,11 @@ export const HelpsForReactMemoWithSelect = () => {
         {value: '1', title: 'Minsk', country: 'BY', population: 2000000},
         {value: '2', title: 'Moscow', country: 'RU', population: 12000000},
         {value: '3', title: 'Kiev', country: 'UA', population: 3000000},
-        {value: '4', title: 'Mozyr', country: 'BY', population: 380500},
-        {value: '5', title: 'Brest', country: 'BY', population: 370000},
-        {value: '6', title: 'Paris', country: 'FR', population: 1420000},
+        {value: '4', title: 'Mogilev', country: 'BY', population: 380500},
+        {value: '5', title: 'Grodno', country: 'BY', population: 370000},
+        {value: '6', title: 'Kharkov', country: 'UA', population: 1420000},
         {value: '7', title: 'Saint-Petersburg', country: 'RU', population: 5000000},
-        {value: '8', title: 'Gomel', country: 'BY', population: 966500},
+        {value: '8', title: 'Dnepr', country: 'UA', population: 966500},
         {value: '9', title: 'Ekaterinburg', country: 'RU', population: 1400000},
     ])
 
@@ -140,7 +139,7 @@ export const HelpsForReactMemoWithSelect = () => {
 
     </>
 }
-//
+
 export const LikeUseCallback = () => {
     console.log('LikeUseCallback')
     const [counter, setCounter] = useState(0)

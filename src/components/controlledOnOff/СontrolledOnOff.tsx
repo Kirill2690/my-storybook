@@ -1,59 +1,56 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-type OnOffPropsType = {
-    onChange: (on: boolean) => void
-    defaultOn?: boolean
+type PropsType = {
+    switchOn: boolean
+    setSwitchOn: (switchOn: boolean) => void
 }
 
-export function ControlledOnOffSecret(props: OnOffPropsType) {
+export function OnOff(props: PropsType) {
+    console.log('OnOff rendering')
 
-    let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false)
+    console.log('on: ' + props.switchOn)
 
     const onStyle = {
-        width: '40px',
+        width: '30px',
         height: '20px',
-        border: '1px solid black',
-        display: 'inline-block',
-        padding: '2px',
-        backgroundColor: on ? 'green' : 'white'
-    }
-    const offStyle = {
-        width: '40px',
-        height: '20px',
-        border: '1px solid black',
-        display: 'inline-block',
-        padding: '2px',
-        marginLeft: '2px',
-        backgroundColor: on ? 'white' : 'red'
-    }
-    const indicatorStyle = {
-        width: '15px',
-        height: '15px',
-        borderRadius: '50%',
         border: '1px solid black',
         display: 'inline-block',
         marginLeft: '5px',
-        backgroundColor: on ? 'green' : 'red'
+        padding: '2px',
+        backgroundColor: props.switchOn ? 'green' : 'white',
+    }
+    const offStyle = {
+        width: '30px',
+        height: '20px',
+        border: '1px solid black',
+        display: 'inline-block',
+        marginLeft: '5px',
+        padding: '2px',
+        backgroundColor: props.switchOn ? 'white' : 'red',
+    }
+    const indicatorStyle = {
+        width: '10px',
+        height: '10px',
+        borderRadius: '5px',
+        border: '1px solid black',
+        display: 'inline-block',
+        marginLeft: '10px',
+        backgroundColor: props.switchOn ? 'green' : 'red',
     }
 
-    const onClick = () => {
-        setOn(true)
-        props.onChange(!on)
-    }
-
-    const offClick = () => {
-        setOn(false)
-        props.onChange(!on)
-
-    }
-
-    return (<div>
-        <div style={onStyle} onClick={onClick}>On
+    return (
+        <div>
+            <div style={onStyle}
+                 onClick={() => {
+                     props.setSwitchOn(true)
+                 }}>On
+            </div>
+            <div style={offStyle}
+                 onClick={() => {
+                     props.setSwitchOn(false)
+                 }}>Off
+            </div>
+            <div style={indicatorStyle}></div>
         </div>
-        <div style={offStyle} onClick={offClick}>Off
-        </div>
-        <div style={indicatorStyle}/>
-    </div>)
-}
-
-export const ControlledOnOff = React.memo(ControlledOnOffSecret)
+    )
+};
